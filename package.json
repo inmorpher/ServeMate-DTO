@@ -1,0 +1,42 @@
+{
+	"name": "dto-package",
+	"version": "1.0.0",
+	"description": "DTO package for ServeMate service",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc",
+		"clean": "rm -rf dist",
+		"prebuild": "npm run clean",
+		"prepare": "npm run build",
+		"test": "echo \"No tests specified\"",
+		"pack": "npm pack --dry-run"
+	},
+	"dependencies": {
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"typescript": "^5.7.2"
+	},
+	"peerDependencies": {
+		"zod": "^3.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/inmorpher/ServeMate-DTO.git"
+	},
+	"bugs": {
+		"url": "https://github.com/inmorpher/ServeMate-DTO/issues"
+	},
+	"homepage": "https://github.com/inmorpher/ServeMate-DTO#readme",
+	"keywords": [
+		"dto",
+		"servemate",
+		"typescript"
+	],
+	"author": "",
+	"license": "ISC"
+}

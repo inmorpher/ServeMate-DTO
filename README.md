@@ -2,6 +2,8 @@
 
 Data Transfer Objects (DTOs) package for the ServeMate restaurant management service. This package provides strongly typed DTOs using Zod for runtime validation.
 
+This package is part of the [ServeMate](https://github.com/inmorpher/ServeMate-service) restaurant management system.
+
 ## Installation
 
 ```bash
@@ -19,6 +21,7 @@ npm install @servemate/dto
 ## Available DTOs
 
 ### User Management
+
 - `UserDTO` - Complete user data structure
 - `CreateUserDTO` - For user creation
 - `UpdateUserDTO` - For partial user updates
@@ -26,6 +29,7 @@ npm install @servemate/dto
 - `UserCredentials` - For authentication
 
 ### Order Management
+
 - `OrderDTO` - Complete order structure
 - `OrderCreateDTO` - For creating new orders
 - `OrderUpdateDTO` - For updating orders
@@ -33,11 +37,13 @@ npm install @servemate/dto
 - `OrderItemDTO` - For individual order items
 
 ### Payment Processing
+
 - `PaymentDTO` - Complete payment data
 - `PaymentSearchDTO` - For payment queries
 - `RefundDTO` - For refund operations
 
 ### Table Management
+
 - `TableDTO` - Complete table data
 - `TableCreateDTO` - For creating tables
 - `TableUpdateDTO` - For updating tables
@@ -45,6 +51,7 @@ npm install @servemate/dto
 - `TableAssignmentDTO` - For server assignments
 
 ### Menu Items
+
 - `FoodItemDTO` - For food items
 - `DrinkItemDTO` - For drink items
 - `CreateFoodItemDTO` - For creating food items
@@ -55,58 +62,62 @@ npm install @servemate/dto
 ## Enums
 
 ### User Related
+
 ```typescript
 import { UserRole } from '@servemate/dto';
 
 // Available roles
-UserRole.ADMIN
-UserRole.USER
-UserRole.HOST
-UserRole.MANAGER
+UserRole.ADMIN;
+UserRole.USER;
+UserRole.HOST;
+UserRole.MANAGER;
 ```
 
 ### Order Related
+
 ```typescript
 import { OrderState } from '@servemate/dto';
 
 // Order states
-OrderState.AWAITING
-OrderState.RECEIVED
-OrderState.SERVED
-OrderState.CANCELED
-OrderState.DISPUTED
-OrderState.READY_TO_PAY
-OrderState.COMPLETED
+OrderState.AWAITING;
+OrderState.RECEIVED;
+OrderState.SERVED;
+OrderState.CANCELED;
+OrderState.DISPUTED;
+OrderState.READY_TO_PAY;
+OrderState.COMPLETED;
 ```
 
 ### Payment Related
+
 ```typescript
 import { PaymentMethod, PaymentState } from '@servemate/dto';
 
 // Payment methods
-PaymentMethod.CASH
-PaymentMethod.CREDIT_CARD
-PaymentMethod.DEBIT_CARD
+PaymentMethod.CASH;
+PaymentMethod.CREDIT_CARD;
+PaymentMethod.DEBIT_CARD;
 
 // Payment states
-PaymentState.NONE
-PaymentState.PAID
-PaymentState.REFUNDED
-PaymentState.CANCELLED
-PaymentState.PENDING
+PaymentState.NONE;
+PaymentState.PAID;
+PaymentState.REFUNDED;
+PaymentState.CANCELLED;
+PaymentState.PENDING;
 ```
 
 ## Usage Examples
 
 ### Creating a User
+
 ```typescript
 import { CreateUserSchema, UserRole } from '@servemate/dto';
 
 const userData = {
-  name: 'John Doe',
-  email: 'john@example.com',
-  role: UserRole.HOST,
-  password: 'secure123'
+	name: 'John Doe',
+	email: 'john@example.com',
+	role: UserRole.HOST,
+	password: 'secure123',
 };
 
 // Validates the data and returns typed result
@@ -114,6 +125,7 @@ const validUser = CreateUserSchema.parse(userData);
 ```
 
 ### Processing an Order
+
 ```typescript
 import { OrderSchema, OrderState } from '@servemate/dto';
 
@@ -129,13 +141,14 @@ const validOrder = OrderSchema.parse(orderData);
 ```
 
 ### Handling Payments
+
 ```typescript
 import { PaymentSchema, PaymentMethod } from '@servemate/dto';
 
 const paymentData = {
-  amount: 50.0,
-  paymentType: PaymentMethod.CREDIT_CARD,
-  orderId: 123
+	amount: 50.0,
+	paymentType: PaymentMethod.CREDIT_CARD,
+	orderId: 123,
 };
 
 // Validates payment data

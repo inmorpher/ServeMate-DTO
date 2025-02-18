@@ -1,5 +1,5 @@
-import { TableCondition } from '@prisma/client';
 import { z } from 'zod';
+import { TableCondition } from './enums';
 import { OrderSchema } from './orders.dto';
 
 /**
@@ -23,7 +23,7 @@ export type TableSortOptions = (typeof TableSortOptionsEnum)[keyof typeof TableS
  */
 export const BaseTableSchema = z.object({
 	id: z.number(),
-	tableNumber: z.number(),
+	tableNumber: z.number().positive(),
 	capacity: z.number(),
 	additionalCapacity: z.number(),
 	isOccupied: z.boolean(),

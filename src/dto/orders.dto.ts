@@ -76,7 +76,7 @@ const drinkItemSchema = baseItemSchema.extend({
 	}),
 });
 
-const orderItemSchema = baseItemSchema.extend({
+export const orderItemSchema = baseItemSchema.extend({
 	foodItem: z
 		.object({
 			name: z.string(),

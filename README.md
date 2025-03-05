@@ -49,6 +49,7 @@ npm install @servemate/dto
 - `TableUpdateDTO` - For updating tables
 - `TableSearchDTO` - For table queries
 - `TableAssignmentDTO` - For server assignments
+- `TableSeatingDTO` - For seating assignments
 
 ### Menu Items
 

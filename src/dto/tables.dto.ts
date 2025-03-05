@@ -14,9 +14,18 @@ export const TableSortOptionsEnum = {
 	SERVER_ID: 'serverId',
 	ORDER_TIME: 'orderTime',
 	IS_OCCUPIED: 'isOccupied',
+	WALK_IN: 'walkIn',
+	RESERVATION: 'reservation',
 } as const;
 
 export type TableSortOptions = (typeof TableSortOptionsEnum)[keyof typeof TableSortOptionsEnum];
+
+export const SeatingType = {
+	WALK_IN: 'WALK_IN',
+	RESERVATION: 'RESERVATION',
+} as const;
+
+export type SeatingType = (typeof SeatingType)[keyof typeof SeatingType];
 
 /**
  * Table-related schemas
@@ -30,6 +39,14 @@ export const BaseTableSchema = z.object({
 	status: z.nativeEnum(TableCondition),
 	guests: z.number(),
 	originalCapacity: z.number(),
+});
+
+export const TableSeatingSchema = BaseTableSchema.pick({
+	tableNumber: true,
+	guests: true,
+}).extend({
+	reservationId: z.number().positive().int().optional(),
+	SeatingType: z.nativeEnum(SeatingType),
 });
 
 export const TableAssignmentSchema = z.object({
@@ -255,4 +272,4 @@ export type TableUpdate = z.infer<typeof TableUpdatesSchema>;
  */
 export type TableId = z.infer<typeof TableIdSchema>;
 
-// ...existing code...
+export type TableSeatingDTO = z.infer<typeof TableSeatingSchema>;

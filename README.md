@@ -17,6 +17,9 @@ npm install @servemate/dto
 - Comprehensive enum support
 - Full TypeScript support
 - Zero external dependencies (except Zod)
+- Automatic type inference from schemas
+- Built-in search criteria validation
+- Pagination support for list operations
 
 ## Available DTOs
 
@@ -27,6 +30,7 @@ npm install @servemate/dto
 - `UpdateUserDTO` - For partial user updates
 - `UserSearchDTO` - For user search queries
 - `UserCredentials` - For authentication
+- `UserListResult` - For paginated user lists
 
 ### Order Management
 
@@ -35,21 +39,30 @@ npm install @servemate/dto
 - `OrderUpdateDTO` - For updating orders
 - `OrderSearchDTO` - For order queries
 - `OrderItemDTO` - For individual order items
+- `OrderFullSingleDTO` - Detailed order information
+- `OrderWithItemsDTO` - Order with associated items
+- `GuestItemsDTO` - Guest-specific order items
+- `OrderSearchListResult` - Paginated order search results
 
 ### Payment Processing
 
 - `PaymentDTO` - Complete payment data
 - `PaymentSearchDTO` - For payment queries
 - `RefundDTO` - For refund operations
+- `PaymentListDTO` - For paginated payment lists
+- `PaymentStatusDTO` - Payment status information
+- `PartialPaymentDTO` - For partial payment updates
 
 ### Table Management
 
-- `TableDTO` - Complete table data
+- `TablesDTO` - Complete table data
 - `TableCreateDTO` - For creating tables
 - `TableUpdateDTO` - For updating tables
 - `TableSearchDTO` - For table queries
 - `TableAssignmentDTO` - For server assignments
 - `TableSeatingDTO` - For seating assignments
+- `TableListItem` - Simplified table information
+- `TablesList` - Paginated table list
 
 ### Menu Items
 
@@ -59,6 +72,10 @@ npm install @servemate/dto
 - `CreateDrinkItemDTO` - For creating drink items
 - `UpdateFoodItemDTO` - For updating food items
 - `UpdateDrinkItemDTO` - For updating drink items
+- `FoodItemsListDTO` - Paginated food items list
+- `DrinkItemsListDTO` - Paginated drink items list
+- `SearchFoodItemsDTO` - For food item searches
+- `SearchDrinkItemsDTO` - For drink item searches
 
 ## Enums
 
@@ -107,6 +124,41 @@ PaymentState.CANCELLED;
 PaymentState.PENDING;
 ```
 
+### Menu Items Related
+
+```typescript
+import {
+	FoodCategory,
+	DrinkCategory,
+	FoodType,
+	SpiceLevel,
+	DrinkTemp,
+	Allergy,
+} from '@servemate/dto';
+
+// Available categories and types
+FoodCategory.APPETIZER;
+DrinkCategory.SOFT_DRINK;
+FoodType.MAIN_COURSE;
+SpiceLevel.NOT_SPICY;
+DrinkTemp.COLD;
+```
+
+### Table Related
+
+```typescript
+import { TableCondition, SeatingType } from '@servemate/dto';
+
+// Table conditions
+TableCondition.AVAILABLE;
+TableCondition.OCCUPIED;
+TableCondition.RESERVED;
+
+// Seating types
+SeatingType.WALK_IN;
+SeatingType.RESERVATION;
+```
+
 ## Usage Examples
 
 ### Creating a User
@@ -131,10 +183,17 @@ const validUser = CreateUserSchema.parse(userData);
 import { OrderSchema, OrderState } from '@servemate/dto';
 
 const orderData = {
-  tableNumber: 5,
-  guestsCount: 4,
-  items: [...],
-  status: OrderState.RECEIVED
+	tableNumber: 5,
+	guestsCount: 4,
+	items: [
+		{
+			foodItemId: 1,
+			quantity: 2,
+			price: 15.99,
+			guestNumber: 1,
+		},
+	],
+	status: OrderState.RECEIVED,
 };
 
 // Validates the order data
@@ -144,16 +203,53 @@ const validOrder = OrderSchema.parse(orderData);
 ### Handling Payments
 
 ```typescript
-import { PaymentSchema, PaymentMethod } from '@servemate/dto';
+import { PaymentSchema, PaymentMethod, PaymentState } from '@servemate/dto';
 
 const paymentData = {
 	amount: 50.0,
 	paymentType: PaymentMethod.CREDIT_CARD,
 	orderId: 123,
+	status: PaymentState.PAID,
+	tax: 5.0,
+	tip: 7.5,
 };
 
 // Validates payment data
 const validPayment = PaymentSchema.parse(paymentData);
+```
+
+### Managing Tables
+
+```typescript
+import { TableCreateSchema, TableCondition } from '@servemate/dto';
+
+const tableData = {
+	tableNumber: 10,
+	capacity: 4,
+	status: TableCondition.AVAILABLE,
+};
+
+// Validates table data
+const validTable = TableCreateSchema.parse(tableData);
+```
+
+### Search Criteria Usage
+
+```typescript
+import { TableSearchCriteriaSchema, TableSortOptionsEnum } from '@servemate/dto';
+
+const searchCriteria = {
+	minCapacity: 4,
+	maxCapacity: 8,
+	isOccupied: false,
+	page: 1,
+	pageSize: 10,
+	sortBy: TableSortOptionsEnum.CAPACITY,
+	sortOrder: 'asc',
+};
+
+// Validates search criteria
+const validCriteria = TableSearchCriteriaSchema.parse(searchCriteria);
 ```
 
 ## Contributing

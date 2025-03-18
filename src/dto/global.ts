@@ -32,6 +32,12 @@ export const listPropsSchema = z.object({
 	totalCount: z.number().int().positive(),
 });
 
+export type ListPropsSchema = z.infer<typeof listPropsSchema>;
+
+export type ListReturnType<T> = {
+	list: T[];
+} & ListPropsSchema;
+
 /**
  * Schema for search criteria used in the application.
  *

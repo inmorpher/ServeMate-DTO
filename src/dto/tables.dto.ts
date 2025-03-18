@@ -30,9 +30,9 @@ export type SeatingType = (typeof SeatingType)[keyof typeof SeatingType];
 /**
  * Table-related schemas
  */
-export const BaseTableSchema = z.object({
+export const TableBaseTableSchema = z.object({
 	id: z.number(),
-	tableNumber: z.number().positive(),
+	tableNumber: z.number().int().positive(),
 	capacity: z.number(),
 	additionalCapacity: z.number(),
 	isOccupied: z.boolean(),
@@ -41,12 +41,16 @@ export const BaseTableSchema = z.object({
 	originalCapacity: z.number(),
 });
 
-export const TableSeatingSchema = BaseTableSchema.pick({
+export const TableSeatingSchema = TableBaseTableSchema.pick({
 	tableNumber: true,
 	guests: true,
 }).extend({
 	reservationId: z.number().positive().int().optional(),
-	SeatingType: z.nativeEnum(SeatingType),
+	SeatingType: z
+		.string()
+		.transform((status) => status?.toUpperCase())
+		.pipe(z.nativeEnum(SeatingType))
+		.default('WALK_IN'),
 });
 
 export const TableAssignmentSchema = z.object({
@@ -55,7 +59,7 @@ export const TableAssignmentSchema = z.object({
 	assignedTables: z.array(z.coerce.number()),
 });
 
-export const TableSchema = BaseTableSchema.extend({
+export const TableSchema = TableBaseTableSchema.extend({
 	orders: z
 		.array(
 			OrderSchema.pick({

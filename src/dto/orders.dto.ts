@@ -142,7 +142,25 @@ export const OrderSearchSchema = z.object({
 	tableNumber: z.coerce.number().int().positive().optional(),
 	test: z.string().optional(),
 	guestsCount: z.coerce.number().int().positive().optional(),
-	allergies: z.array(z.nativeEnum(Allergies)).optional(),
+	// allergies: z.array(z.nativeEnum(Allergies)).optional(),
+	allergies: z.preprocess(
+		(val) => {
+			if (typeof val === 'string') {
+				// Разбиваем строку по запятым, очищаем от пробелов и приводим к верхнему регистру
+				const items = val
+					.split(',')
+					.map((item) => item.trim().toUpperCase())
+					.filter((item) => item !== '');
+				return items.length > 0 ? items : undefined;
+			}
+			if (Array.isArray(val)) {
+				// Если массив, приводим каждый элемент к верхнему регистру
+				return val.map((item) => (typeof item === 'string' ? item.toUpperCase() : item));
+			}
+			return undefined;
+		},
+		z.optional(z.array(z.nativeEnum(Allergies)))
+	),
 	serverId: z
 		.string()
 		.optional()

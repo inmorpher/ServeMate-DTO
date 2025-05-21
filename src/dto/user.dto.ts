@@ -91,14 +91,8 @@ export const UserParamSchema = z
 		id: z.coerce.number(),
 		email: z.string().email().optional(),
 		name: z.string().min(3).optional(),
-		page: z
-			.string()
-			.optional()
-			.transform((value) => (value ? parseInt(value) : undefined)),
-		pageSize: z
-			.string()
-			.optional()
-			.transform((value) => (value ? parseInt(value) : undefined)),
+		page: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional(),
+		pageSize: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional(),
 		sortBy: z.nativeEnum(UserSortColumn).optional(),
 		sortOrder: z.enum(['asc', 'desc']).optional(),
 		role: z

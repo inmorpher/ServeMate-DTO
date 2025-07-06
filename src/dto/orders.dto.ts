@@ -171,6 +171,8 @@ export const OrderSearchSchema = z.object({
 		.transform((status) => status?.toUpperCase())
 		.pipe(z.nativeEnum(OrderState))
 		.optional(),
+	minAmount: z.coerce.number().int().positive().optional(),
+	maxAmount: z.coerce.number().int().positive().optional(),
 	page: z.coerce.number().int().positive().optional().default(1),
 	pageSize: z.coerce.number().int().positive().max(100).optional().default(10),
 	sortBy: z
@@ -313,6 +315,10 @@ export type OrderSearchListResult = {
 		| 'discount'
 		| 'tip'
 	>[];
+	priceRange: {
+		min: number;
+		max: number;
+	};
 	totalCount: number;
 	page: number;
 	pageSize: number;

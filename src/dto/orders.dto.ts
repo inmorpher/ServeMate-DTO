@@ -112,7 +112,7 @@ export const OrderSchema = z.object({
 	updatedAt: z.date(),
 	allergies: z.array(z.nativeEnum(Allergies)).optional(),
 	serverId: z.coerce.number().int().positive(),
-	totalAmount: z.coerce.number().int().positive().default(0),
+	totalAmount: z.coerce.number().int().nonnegative().default(0),
 	status: z.nativeEnum(OrderState).default(OrderState.RECEIVED),
 	comments: z.string().optional().nullable(),
 	completionTime: z.date().optional().nullable(),

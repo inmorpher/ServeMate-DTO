@@ -5,6 +5,8 @@ import {
 	OrderSearchSchema,
 	OrderUpdateProps,
 	PrepareItems,
+	OrderCreateSchema,
+	OrderUpdateItemsSchema,
 } from '../src/dto/orders.dto';
 import { expectNoValidationError, expectValidationError } from '../test-setup';
 
@@ -157,6 +159,22 @@ describe('Order DTOs', () => {
 				OrderSearchSchema.parse(invalidPage);
 			});
 		});
+
+		it('should handle allergy array from string', () => {
+			const search = {
+				allergies: 'GLUTEN,DAIRY',
+			};
+			const parsed = OrderSearchSchema.parse(search);
+			expect(parsed.allergies).toEqual(['GLUTEN', 'DAIRY']);
+		});
+
+		it('should handle allergy array from array', () => {
+			const search = {
+				allergies: ['GLUTEN', 'DAIRY'],
+			};
+			const parsed = OrderSearchSchema.parse(search);
+			expect(parsed.allergies).toEqual(['GLUTEN', 'DAIRY']);
+		});
 	});
 
 	describe('OrderUpdateProps', () => {
@@ -176,6 +194,76 @@ describe('Order DTOs', () => {
 
 			expectValidationError(() => {
 				OrderUpdateProps.parse(emptyUpdate);
+			});
+		});
+	});
+
+	describe('OrderCreateSchema', () => {
+		it('should reject order with no items', () => {
+			const noItemsOrder = {
+				tableNumber: 1,
+				guestsCount: 1,
+				serverId: 1,
+				foodItems: [],
+				drinkItems: [],
+			};
+			expectValidationError(() => {
+				OrderCreateSchema.parse(noItemsOrder);
+			});
+		});
+
+		it('should pass with food items', () => {
+			const order = {
+				tableNumber: 1,
+				guestsCount: 1,
+				serverId: 1,
+				foodItems: [
+					{
+						guestNumber: 1,
+						items: [
+							{
+								price: 1,
+								itemId: 1,
+								specialRequest: null,
+							},
+						],
+					},
+				],
+			};
+			expectNoValidationError(() => {
+				OrderCreateSchema.parse(order);
+			});
+		});
+	});
+
+	describe('OrderUpdateItemsSchema', () => {
+		it('should reject update with no items', () => {
+			const noItemsUpdate = {
+				foodItems: [],
+				drinkItems: [],
+			};
+			expectValidationError(() => {
+				OrderUpdateItemsSchema.parse(noItemsUpdate);
+			});
+		});
+
+		it('should pass with drink items', () => {
+			const update = {
+				drinkItems: [
+					{
+						guestNumber: 1,
+						items: [
+							{
+								price: 1,
+								itemId: 1,
+								specialRequest: null,
+							},
+						],
+					},
+				],
+			};
+			expectNoValidationError(() => {
+				OrderUpdateItemsSchema.parse(update);
 			});
 		});
 	});

@@ -1,8 +1,26 @@
 # @servemate/dto
 
-Data Transfer Objects (DTOs) package for the ServeMate restaurant management service. This package provides strongly typed DTOs using Zod for runtime validation.
+[![NPM Version](https://img.shields.io/npm/v/@servemate/dto.svg)](https://www.npmjs.com/package/@servemate/dto)
+[![License](https://img.shields.io/npm/l/@servemate/dto.svg)](https://github.com/inmorpher/ServeMate-DTO/blob/main/LICENSE)
+[![TypeScript](https://img.shields.io/badge/language-typescript-blue.svg)](https://www.typescriptlang.org/)
+[![Zod](https://img.shields.io/badge/validation-Zod-purple.svg)](https://zod.dev/)
 
-This package is part of the [ServeMate](https://github.com/inmorpher/ServeMate-service) restaurant management system.
+**Data Transfer Objects (DTOs) package for the ServeMate restaurant management service.**
+
+This package provides a comprehensive set of strongly-typed DTOs with runtime validation powered by Zod. It ensures data integrity and consistency across all microservices within the [ServeMate](https://github.com/inmorpher/ServeMate-service) ecosystem.
+
+## Overview
+
+`@servemate/dto` is a centralized repository for all data contracts used in the ServeMate platform. By defining clear and strict schemas, it helps prevent common data-related errors, simplifies API development, and enables seamless communication between different parts of the system.
+
+## Key Features
+
+-   **Type-Safe by Default**: Leverages TypeScript and Zod to provide compile-time and runtime type safety.
+-   **Runtime Validation**: Ensures that all incoming and outgoing data conforms to the expected structure.
+-   **Automatic Type Inference**: Automatically generate TypeScript types from Zod schemas, reducing code duplication.
+-   **Comprehensive DTOs**: Covers all domains of the restaurant management system, including users, orders, payments, tables, and menu items.
+-   **Search & Pagination**: Built-in support for complex search criteria and paginated responses.
+-   **Zero Dependencies**: Other than `zod` as a peer dependency, this package is completely self-contained.
 
 ## Installation
 
@@ -10,256 +28,199 @@ This package is part of the [ServeMate](https://github.com/inmorpher/ServeMate-s
 npm install @servemate/dto
 ```
 
-## Features
+or with Yarn:
 
-- Type-safe DTOs for all service entities
-- Runtime validation using Zod
-- Comprehensive enum support
-- Full TypeScript support
-- Zero external dependencies (except Zod)
-- Automatic type inference from schemas
-- Built-in search criteria validation
-- Pagination support for list operations
+```bash
+yarn add @servemate/dto
+```
 
-## Available DTOs
+> **Note**: This package requires `zod` as a peer dependency. Please ensure it is installed in your project.
+>
+> ```bash
+> npm install zod
+> ```
 
-### User Management
+## Available DTOs and Schemas
 
-- `UserDTO` - Complete user data structure
-- `CreateUserDTO` - For user creation
-- `UpdateUserDTO` - For partial user updates
-- `UserSearchDTO` - For user search queries
-- `UserCredentials` - For authentication
-- `UserListResult` - For paginated user lists
+This package is organized into several domains, each with its own set of DTOs and validation schemas.
 
-### Order Management
+<details>
+<summary><strong>User Management</strong></summary>
 
-- `OrderDTO` - Complete order structure
-- `OrderCreateDTO` - For creating new orders
-- `OrderUpdateDTO` - For updating orders
-- `OrderSearchDTO` - For order queries
-- `OrderItemDTO` - For individual order items
-- `OrderFullSingleDTO` - Detailed order information
-- `OrderWithItemsDTO` - Order with associated items
-- `GuestItemsDTO` - Guest-specific order items
-- `OrderSearchListResult` - Paginated order search results
+| Schema              | Description                               |
+| ------------------- | ----------------------------------------- |
+| `UserSchema`        | Complete user data structure.             |
+| `CreateUserSchema`  | For creating a new user.                  |
+| `UpdateUserSchema`  | For partial user updates.                 |
+| `UserSearchSchema`  | For user search queries.                  |
+| `UserCredentials`   | For authentication purposes.              |
+| `UserListResult`    | For paginated lists of users.             |
 
-### Payment Processing
+</details>
 
-- `PaymentDTO` - Complete payment data
-- `PaymentSearchDTO` - For payment queries
-- `RefundDTO` - For refund operations
-- `PaymentListDTO` - For paginated payment lists
-- `PaymentStatusDTO` - Payment status information
-- `PartialPaymentDTO` - For partial payment updates
+<details>
+<summary><strong>Order Management</strong></summary>
 
-### Table Management
+| Schema                | Description                               |
+| --------------------- | ----------------------------------------- |
+| `OrderSchema`         | Complete order structure.                 |
+| `OrderCreateSchema`   | For creating a new order.                 |
+| `OrderUpdateSchema`   | For updating an existing order.           |
+| `OrderSearchSchema`   | For order search queries.                 |
+| `OrderItemSchema`     | For individual items within an order.     |
+| `OrderFullSingleDTO`  | Detailed information for a single order.  |
+| `OrderWithItemsDTO`   | An order with its associated items.       |
+| `GuestItemsDTO`       | Guest-specific order items.               |
+| `OrderSearchListResult`| For paginated lists of orders.           |
 
-- `TablesDTO` - Complete table data
-- `TableCreateDTO` - For creating tables
-- `TableUpdateDTO` - For updating tables
-- `TableSearchDTO` - For table queries
-- `TableAssignmentDTO` - For server assignments
-- `TableSeatingDTO` - For seating assignments
-- `TableListItem` - Simplified table information
-- `TablesList` - Paginated table list
+</details>
 
-### Menu Items
+<details>
+<summary><strong>Payment Processing</strong></summary>
 
-- `FoodItemDTO` - For food items
-- `DrinkItemDTO` - For drink items
-- `CreateFoodItemDTO` - For creating food items
-- `CreateDrinkItemDTO` - For creating drink items
-- `UpdateFoodItemDTO` - For updating food items
-- `UpdateDrinkItemDTO` - For updating drink items
-- `FoodItemsListDTO` - Paginated food items list
-- `DrinkItemsListDTO` - Paginated drink items list
-- `SearchFoodItemsDTO` - For food item searches
-- `SearchDrinkItemsDTO` - For drink item searches
+| Schema              | Description                               |
+| ------------------- | ----------------------------------------- |
+| `PaymentSchema`     | Complete payment data structure.          |
+| `PaymentSearchSchema`| For payment search queries.              |
+| `RefundSchema`      | For refund operations.                    |
+| `PaymentListDTO`    | For paginated lists of payments.          |
+| `PaymentStatusDTO`  | Represents the status of a payment.       |
+| `PartialPaymentDTO` | For partial payment updates.              |
+
+</details>
+
+<details>
+<summary><strong>Table Management</strong></summary>
+
+| Schema                | Description                               |
+| --------------------- | ----------------------------------------- |
+| `TablesSchema`        | Complete table data structure.            |
+| `TableCreateSchema`   | For creating a new table.                 |
+| `TableUpdateSchema`   | For updating an existing table.           |
+| `TableSearchSchema`   | For table search queries.                 |
+| `TableAssignmentSchema`| For assigning servers to tables.         |
+| `TableSeatingSchema`  | For seating assignments.                  |
+| `TableListItem`       | Simplified table information for lists.   |
+| `TablesList`          | For paginated lists of tables.            |
+
+</details>
+
+<details>
+<summary><strong>Menu Items</strong></summary>
+
+| Schema                 | Description                               |
+| ---------------------- | ----------------------------------------- |
+| `FoodItemSchema`       | For food items.                           |
+| `DrinkItemSchema`      | For drink items.                          |
+| `CreateFoodItemSchema` | For creating a new food item.             |
+| `CreateDrinkItemSchema`| For creating a new drink item.            |
+| `UpdateFoodItemSchema` | For updating an existing food item.       |
+| `UpdateDrinkItemSchema`| For updating an existing drink item.      |
+| `FoodItemsListDTO`     | For paginated lists of food items.        |
+| `DrinkItemsListDTO`    | For paginated lists of drink items.       |
+| `SearchFoodItemsSchema`| For food item search queries.             |
+| `SearchDrinkItemsSchema`| For drink item search queries.           |
+
+</details>
 
 ## Enums
 
-### User Related
-
-```typescript
-import { UserRole } from '@servemate/dto';
-
-// Available roles
-UserRole.ADMIN;
-UserRole.USER;
-UserRole.HOST;
-UserRole.MANAGER;
-```
-
-### Order Related
-
-```typescript
-import { OrderState } from '@servemate/dto';
-
-// Order states
-OrderState.AWAITING;
-OrderState.RECEIVED;
-OrderState.SERVED;
-OrderState.CANCELED;
-OrderState.DISPUTED;
-OrderState.READY_TO_PAY;
-OrderState.COMPLETED;
-```
-
-### Payment Related
-
-```typescript
-import { PaymentMethod, PaymentState } from '@servemate/dto';
-
-// Payment methods
-PaymentMethod.CASH;
-PaymentMethod.CREDIT_CARD;
-PaymentMethod.DEBIT_CARD;
-
-// Payment states
-PaymentState.NONE;
-PaymentState.PAID;
-PaymentState.REFUNDED;
-PaymentState.CANCELLED;
-PaymentState.PENDING;
-```
-
-### Menu Items Related
+The package includes a rich set of enums to ensure consistency for categorical data.
 
 ```typescript
 import {
-	FoodCategory,
-	DrinkCategory,
-	FoodType,
-	SpiceLevel,
-	DrinkTemp,
-	Allergy,
+    UserRole,
+    OrderState,
+    PaymentMethod,
+    PaymentState,
+    FoodCategory,
+    DrinkCategory,
+    TableCondition,
+    SeatingType
 } from '@servemate/dto';
 
-// Available categories and types
-FoodCategory.APPETIZER;
-DrinkCategory.SOFT_DRINK;
-FoodType.MAIN_COURSE;
-SpiceLevel.NOT_SPICY;
-DrinkTemp.COLD;
-```
-
-### Table Related
-
-```typescript
-import { TableCondition, SeatingType } from '@servemate/dto';
-
-// Table conditions
-TableCondition.AVAILABLE;
-TableCondition.OCCUPIED;
-TableCondition.RESERVED;
-
-// Seating types
-SeatingType.WALK_IN;
-SeatingType.RESERVATION;
+// Example usage:
+const role = UserRole.MANAGER;
+const orderState = OrderState.COMPLETED;
+const paymentMethod = PaymentMethod.CREDIT_CARD;
 ```
 
 ## Usage Examples
 
-### Creating a User
+### 1. Data Validation
+
+Use the Zod schemas to validate data at runtime. This is especially useful for validating incoming API requests.
 
 ```typescript
-import { CreateUserSchema, UserRole } from '@servemate/dto';
+import { CreateUserSchema } from '@servemate/dto';
 
-const userData = {
-	name: 'John Doe',
-	email: 'john@example.com',
-	role: UserRole.HOST,
-	password: 'secure123',
+const newUserData = {
+    name: 'Jane Doe',
+    email: 'jane.doe@example.com',
+    role: 'USER',
+    password: 'password123'
 };
 
-// Validates the data and returns typed result
-const validUser = CreateUserSchema.parse(userData);
+try {
+    const validatedUser = CreateUserSchema.parse(newUserData);
+    console.log('User data is valid:', validatedUser);
+    // Proceed with user creation...
+} catch (error) {
+    console.error('Validation failed:', error);
+}
 ```
 
-### Processing an Order
+### 2. Type Inference
+
+Automatically infer TypeScript types from the Zod schemas to keep your code DRY and consistent.
 
 ```typescript
-import { OrderSchema, OrderState } from '@servemate/dto';
+import { z } from 'zod';
+import { OrderSchema, OrderItemSchema } from '@servemate/dto';
 
-const orderData = {
-	tableNumber: 5,
-	guestsCount: 4,
-	items: [
-		{
-			foodItemId: 1,
-			quantity: 2,
-			price: 15.99,
-			guestNumber: 1,
-		},
-	],
-	status: OrderState.RECEIVED,
-};
+// Infer the TypeScript type from the schema
+type Order = z.infer<typeof OrderSchema>;
+type OrderItem = z.infer<typeof OrderItemSchema>;
 
-// Validates the order data
-const validOrder = OrderSchema.parse(orderData);
+function processOrder(order: Order) {
+    console.log(`Processing order for table ${order.tableNumber}`);
+    order.items.forEach((item: OrderItem) => {
+        console.log(`- ${item.quantity}x Item ID: ${item.foodItemId || item.drinkItemId}`);
+    });
+}
 ```
 
-### Handling Payments
+### 3. Search and Pagination
 
-```typescript
-import { PaymentSchema, PaymentMethod, PaymentState } from '@servemate/dto';
-
-const paymentData = {
-	amount: 50.0,
-	paymentType: PaymentMethod.CREDIT_CARD,
-	orderId: 123,
-	status: PaymentState.PAID,
-	tax: 5.0,
-	tip: 7.5,
-};
-
-// Validates payment data
-const validPayment = PaymentSchema.parse(paymentData);
-```
-
-### Managing Tables
-
-```typescript
-import { TableCreateSchema, TableCondition } from '@servemate/dto';
-
-const tableData = {
-	tableNumber: 10,
-	capacity: 4,
-	status: TableCondition.AVAILABLE,
-};
-
-// Validates table data
-const validTable = TableCreateSchema.parse(tableData);
-```
-
-### Search Criteria Usage
+The search schemas provide a standardized way to handle complex queries with pagination.
 
 ```typescript
 import { TableSearchCriteriaSchema, TableSortOptionsEnum } from '@servemate/dto';
 
 const searchCriteria = {
-	minCapacity: 4,
-	maxCapacity: 8,
-	isOccupied: false,
-	page: 1,
-	pageSize: 10,
-	sortBy: TableSortOptionsEnum.CAPACITY,
-	sortOrder: 'asc',
+    minCapacity: 2,
+    maxCapacity: 6,
+    status: 'AVAILABLE',
+    page: 1,
+    pageSize: 20,
+    sortBy: TableSortOptionsEnum.CAPACITY,
+    sortOrder: 'desc',
 };
 
-// Validates search criteria
-const validCriteria = TableSearchCriteriaSchema.parse(searchCriteria);
+const validatedCriteria = TableSearchCriteriaSchema.parse(searchCriteria);
+
+// Use validatedCriteria to fetch data from your service
+// e.g., fetch('/api/tables', { body: JSON.stringify(validatedCriteria) });
 ```
 
 ## Contributing
 
-Please read our [contributing guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Contributions are welcome! Please read our [contributing guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
-ISC
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
-For support, please raise an issue in our [issue tracker](https://github.com/inmorpher/ServeMate-DTO/issues).
+For support, please open an issue in our [issue tracker](https://github.com/inmorpher/ServeMate-DTO/issues).

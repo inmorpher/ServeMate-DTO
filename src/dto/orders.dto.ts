@@ -6,7 +6,6 @@ import { OrderState } from './enums';
  */
 
 export const Allergies = {
-	NONE: 'NONE',
 	GLUTEN: 'GLUTEN',
 	DAIRY: 'DAIRY',
 	EGG: 'EGG',

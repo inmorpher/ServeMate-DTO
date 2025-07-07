@@ -1,6 +1,6 @@
 {
 	"name": "@servemate/dto",
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"description": "Comprehensive DTO package for ServeMate restaurant management system. Includes type-safe DTOs with Zod validation for users, orders, payments, tables, and menu items management.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

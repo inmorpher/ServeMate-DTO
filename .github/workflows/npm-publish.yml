@@ -15,7 +15,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
       # Генерируем package-lock.json если его нет
       - run: npm install --package-lock-only
       - run: npm ci

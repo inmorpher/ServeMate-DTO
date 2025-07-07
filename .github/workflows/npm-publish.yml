@@ -37,8 +37,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@servemate'
       # Генерируем package-lock.json если его нет
-      - run: npm install --package-lock-only
       - run: npm install zod
+      - run: npm install --package-lock-only
       - run: npm ci
       - run: npm run build
       # Проверяем что версия тега соответствует версии в package.json

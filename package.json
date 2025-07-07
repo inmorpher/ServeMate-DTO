@@ -1,6 +1,6 @@
 {
 	"name": "@servemate/dto",
-	"version": "1.0.18",
+	"version": "1.0.19",
 	"description": "Comprehensive DTO package for ServeMate restaurant management system. Includes type-safe DTOs with Zod validation for users, orders, payments, tables, and menu items management.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -11,7 +11,6 @@
 		"build": "tsc",
 		"clean": "rm -rf dist",
 		"prebuild": "npm run clean",
-		"prepare": "npm run build",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",

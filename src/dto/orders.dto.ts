@@ -275,6 +275,18 @@ export const OrderMeta = z.object({
 		max: z.string().datetime(),
 	}),
 	tableNumbers: z.array(z.coerce.number().int().positive()),
+	filtered: z.object({
+		maxGuests: z.number().int().positive(),
+		prices: z.object({
+			min: z.number().int().nonnegative(),
+			max: z.number().int().nonnegative(),
+		}),
+		dates: z.object({
+			min: z.string().datetime(),
+			max: z.string().datetime(),
+		}),
+		tableNumbers: z.array(z.coerce.number().int().positive()),
+	}),
 });
 
 /**

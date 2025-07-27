@@ -99,7 +99,7 @@ describe('Order DTOs', () => {
 				price: -15.99,
 				specialRequest: '',
 				guestNumber: 1,
-				allergies: [Allergy.NONE],
+				allergies: [Allergy.CELERY],
 				discount: 0,
 				finalPrice: -15.99,
 				printed: false,

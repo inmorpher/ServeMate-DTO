@@ -262,6 +262,21 @@ export const PrepareItems = z.object({
 	drinkItems: z.array(drinkItemSchema.partial()).default([]),
 });
 
+export const OrderMeta = z.object({
+	statuses: z.array(z.nativeEnum(OrderState)),
+	allergies: z.array(z.nativeEnum(Allergies)),
+	maxGuests: z.number().int().positive(),
+	prices: z.object({
+		min: z.number().int().nonnegative(),
+		max: z.number().int().nonnegative(),
+	}),
+	dates: z.object({
+		min: z.string().datetime(),
+		max: z.string().datetime(),
+	}),
+	tableNumbers: z.array(z.coerce.number().int().positive()),
+});
+
 /**
  * Order-related types
  */
@@ -296,6 +311,8 @@ export type PrepareItemsDTO = z.infer<typeof PrepareItems>;
 export type OrderItemExt = z.infer<typeof orderItemSchema>;
 
 export type OrderUpdateItems = z.infer<typeof OrderUpdateItemsSchema>;
+
+export type OrderMetaDTO = z.infer<typeof OrderMeta>;
 
 export type OrderSearchListResult = {
 	orders: Pick<

@@ -96,7 +96,6 @@ export const RefundState = {
 export type RefundState = (typeof RefundState)[keyof typeof RefundState];
 
 export const Allergy = {
-  NONE: "NONE",
   GLUTEN: "GLUTEN",
   DAIRY: "DAIRY",
   EGG: "EGG",

@@ -1,12 +1,12 @@
 import { Allergy, OrderState, PaymentState } from '../src/dto/enums';
 import {
+	OrderCreateSchema,
 	orderItemSchema,
 	OrderSchema,
 	OrderSearchSchema,
+	OrderUpdateItemsSchema,
 	OrderUpdateProps,
 	PrepareItems,
-	OrderCreateSchema,
-	OrderUpdateItemsSchema,
 } from '../src/dto/orders.dto';
 import { expectNoValidationError, expectValidationError } from '../test-setup';
 
@@ -78,7 +78,7 @@ describe('Order DTOs', () => {
 				specialRequest: 'No onions',
 				price: 15.99,
 				guestNumber: 1,
-				allergies: [Allergy.NONE],
+				allergies: [Allergy.CELERY],
 				discount: 0,
 				finalPrice: 15.99,
 				printed: false,

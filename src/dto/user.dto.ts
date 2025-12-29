@@ -122,7 +122,7 @@ export const UserParamSchema = z
 				message: 'createdBefore must be a valid date string',
 			}),
 	})
-	.partial();
+	
 
 /**
  * Schema for updating user information.

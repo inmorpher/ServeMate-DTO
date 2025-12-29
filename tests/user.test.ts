@@ -158,6 +158,7 @@ describe('User DTOs', () => {
 	describe('UserSearchCriteriaSchema', () => {
 		it('should validate valid search criteria', () => {
 			const validSearch = {
+				id: 1,
 				name: 'John',
 				role: UserRole.MANAGER,
 				isActive: 'true',
@@ -174,6 +175,7 @@ describe('User DTOs', () => {
 
 		it('should handle date filters correctly', () => {
 			const dateFilters = {
+				id: 1,
 				createdAfter: '2024-01-01',
 				createdBefore: '2024-12-31',
 			};
@@ -185,6 +187,7 @@ describe('User DTOs', () => {
 
 		it('should reject invalid date formats', () => {
 			const invalidDates = {
+				id: 1,
 				createdAfter: 'not-a-date',
 				createdBefore: '2024-13-45', // invalid date
 			};
@@ -196,6 +199,7 @@ describe('User DTOs', () => {
 
 		it('should transform boolean string values', () => {
 			const booleanStrings = {
+				id: 1,
 				isActive: 'true',
 			};
 
@@ -205,6 +209,7 @@ describe('User DTOs', () => {
 
 		it('should properly transform and validate role', () => {
 			const searchWithRole = {
+				id: 1,
 				role: 'admin', // lowercase input
 			};
 
@@ -214,6 +219,7 @@ describe('User DTOs', () => {
 
 		it('should reject invalid role values', () => {
 			const invalidRole = {
+				id: 1,
 				role: 'INVALID_ROLE',
 			};
 

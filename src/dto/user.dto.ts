@@ -91,10 +91,10 @@ export const UserParamSchema = z
 		id: z.coerce.number(),
 		email: z.string().email().optional(),
 		name: z.string().min(3).optional(),
-		page: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional(),
-		pageSize: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional(),
-		sortBy: z.nativeEnum(UserSortColumn).optional(),
-		sortOrder: z.enum(['asc', 'desc']).optional(),
+		page: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional().default(1),
+		pageSize: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional().default(10),
+		sortBy: z.nativeEnum(UserSortColumn).optional().default(UserSortColumn.NAME),
+		sortOrder: z.enum(['asc', 'desc']).optional().default('asc'),
 		role: z
 			.string()
 			.optional()

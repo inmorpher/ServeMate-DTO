@@ -88,19 +88,17 @@ export const IdParamSchema = z.object({
  */
 export const UserParamSchema = z
 	.object({
-		id: z.coerce.number(),
+		id: z.coerce.number().optional(),
 		email: z.string().email().optional(),
 		name: z.string().min(3).optional(),
-		page: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional().default(1),
-		pageSize: z.union([z.string().transform((value) => parseInt(value)), z.number()]).optional().default(10),
-		sortBy: z.nativeEnum(UserSortColumn).optional().default(UserSortColumn.NAME),
-		sortOrder: z.enum(['asc', 'desc']).optional().default('asc'),
-		role: z
-			.string()
-			.optional()
-			.transform((value) => value?.toUpperCase())
-			.pipe(z.nativeEnum(UserRole))
-			.optional(),
+		page: z.coerce.number().int().min(1).default(1),
+		pageSize: z.coerce.number().int().min(1).default(10),
+		sortBy: z.nativeEnum(UserSortColumn).default(UserSortColumn.NAME),
+		sortOrder: z.enum(['asc', 'desc']).default('asc'),
+		role: z.preprocess(
+			(value) => (typeof value === 'string' ? value.toUpperCase() : value),
+			z.nativeEnum(UserRole).optional(),
+		),
 		isActive: z
 			.enum(['true', 'false'])
 			.optional()
@@ -121,7 +119,7 @@ export const UserParamSchema = z
 			.refine((value) => !value || !isNaN(Date.parse(value)), {
 				message: 'createdBefore must be a valid date string',
 			}),
-	})
+	});
 	
 
 /**

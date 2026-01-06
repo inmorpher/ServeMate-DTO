@@ -20,25 +20,36 @@ This package provides a comprehensive set of strongly-typed DTOs with runtime va
 -   **Automatic Type Inference**: Automatically generate TypeScript types from Zod schemas, reducing code duplication.
 -   **Comprehensive DTOs**: Covers all domains of the restaurant management system, including users, orders, payments, tables, and menu items.
 -   **Search & Pagination**: Built-in support for complex search criteria and paginated responses.
--   **Zero Dependencies**: Other than `zod` as a peer dependency, this package is completely self-contained.
+-   **Zero Prisma Dependencies**: This package is completely independent from `@prisma/client` at runtime. Use it on any platform - web, mobile, or any backend service!
+-   **Zero External Dependencies**: Only `zod` as a peer dependency for validation. Nothing else required.
+
+## Important: Prisma Independence ✨
+
+**This package contains NO runtime dependency on `@prisma/client`.** 
+
+It provides pure TypeScript types and Zod validation schemas that work everywhere:
+- ✅ In browser applications
+- ✅ In mobile apps
+- ✅ In other backend services
+- ✅ Without installing Prisma
+
+All types are defined as standalone TypeScript interfaces that mirror Prisma models, making them fully portable and reusable.
+
+For more details, see [PRISMA_INDEPENDENCE.md](./PRISMA_INDEPENDENCE.md).
 
 ## Installation
 
 ```bash
-npm install @servemate/dto
+npm install @servemate/dto zod
 ```
 
 or with Yarn:
 
 ```bash
-yarn add @servemate/dto
+yarn add @servemate/dto zod
 ```
 
-> **Note**: This package requires `zod` as a peer dependency. Please ensure it is installed in your project.
->
-> ```bash
-> npm install zod
-> ```
+> **Requirements**: This package requires `zod` as a peer dependency for runtime validation. It does NOT require `@prisma/client`.
 
 ## Available DTOs and Schemas
 

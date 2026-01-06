@@ -1,7 +1,7 @@
 {
 	"name": "@servemate/dto",
-	"version": "1.0.28",
-	"description": "Comprehensive DTO package for ServeMate restaurant management system. Includes type-safe DTOs with Zod validation for users, orders, payments, tables, and menu items management.",
+	"version": "1.1.0",
+	"description": "Type-safe DTO package for ServeMate with Prisma 7 types and Zod validation. Shared across server and client.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
@@ -14,7 +14,9 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
-		"pack": "npm pack --dry-run"
+		"prepublishOnly": "npm run build && npm test",
+		"pack": "npm pack",
+		"publish": "npm publish"
 	},
 	"devDependencies": {
 		"@types/jest": "^29.5.11",
@@ -24,6 +26,7 @@
 		"zod": "^3.23.8"
 	},
 	"peerDependencies": {
+		"@prisma/client": "^7.0.0",
 		"zod": "^3.23.8"
 	},
 	"repository": {

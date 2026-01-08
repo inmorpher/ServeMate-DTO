@@ -178,6 +178,7 @@ export const OrderSearchSchema = z.object({
 		.enum(Object.values(OrderSortOptions) as [string, ...string[]])
 		.default(OrderSortOptions.ID),
 	sortOrder: z.enum(['asc', 'desc']).optional().default('asc'),
+	meta: z.coerce.boolean().optional().default(false),
 });
 
 export const foodAndDrinkSchema = z.object({

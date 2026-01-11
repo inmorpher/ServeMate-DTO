@@ -135,13 +135,26 @@ export const OrderSchema = z.object({
  * @property {number} [pageSize=10] - The number of items per page for pagination. Must be a positive integer and cannot exceed 100. Defaults to 10.
  * @property {OrderSortOptions} [sortBy=OrderSortOptions.ID] - The field by which to sort the results. Defaults to OrderSortOptions.ID.
  * @property {'asc' | 'desc'} [sortOrder='asc'] - The order in which to sort the results. Defaults to 'asc'.
+ * @property {boolean} [meta=false] - A flag indicating whether to include metadata in the response. Defaults to false.
  */
 export const OrderSearchSchema = z.object({
 	id: z.coerce.number().int().positive().optional(),
-	tableNumber: z.coerce.number().int().positive().optional(),
-	test: z.string().optional(),
+	tableNumbers: z.preprocess(val=> {
+		if (typeof val === 'string') {
+			const items = val.split(',').map(item => parseInt(item.trim())).filter(item => item!== undefined || !isNaN(item));
+			return items.length > 0 ? items : undefined;
+		}
+
+		if( Array.isArray(val)) {
+			return val.map(item => {
+				const num = typeof item ==='string' ? parseInt(item) : item;
+				return isNaN(num) ? undefined : num;
+			})
+		}
+		return undefined;
+	}, z.optional(z.array(z.coerce.number().int().positive()))
+),
 	guestsCount: z.coerce.number().int().positive().optional(),
-	// allergies: z.array(z.nativeEnum(Allergies)).optional(),
 	allergies: z.preprocess(
 		(val) => {
 			if (typeof val === 'string') {
@@ -178,7 +191,6 @@ export const OrderSearchSchema = z.object({
 		.enum(Object.values(OrderSortOptions) as [string, ...string[]])
 		.default(OrderSortOptions.ID),
 	sortOrder: z.enum(['asc', 'desc']).optional().default('asc'),
-	meta: z.coerce.boolean().optional().default(false),
 });
 
 export const foodAndDrinkSchema = z.object({

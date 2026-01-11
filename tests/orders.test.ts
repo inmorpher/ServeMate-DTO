@@ -132,12 +132,12 @@ describe('Order DTOs', () => {
 
 		it('should transform string values to appropriate types', () => {
 			const stringValues = {
-				tableNumber: '5',
+				tableNumbers: ['1', '2', '3'],
 				serverId: '10',
 			};
 
 			const parsed = OrderSearchSchema.parse(stringValues);
-			expect(typeof parsed.tableNumber).toBe('number');
+			expect(Array.isArray(parsed.tableNumbers)).toBe(true);
 			expect(parsed.serverId).toBeDefined();
 		});
 

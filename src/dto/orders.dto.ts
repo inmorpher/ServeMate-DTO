@@ -54,7 +54,6 @@ const baseItemSchema = z.object({
 	itemId: z.number().int().positive(),
 	finalPrice: z.number().default(0),
 	specialRequest: z.string().nullable(),
-	allergies: z.array(z.nativeEnum(Allergies)).default([]),
 	printed: z.boolean().default(false),
 	fired: z.boolean().default(false),
 	guestNumber: z.number().int().positive(),

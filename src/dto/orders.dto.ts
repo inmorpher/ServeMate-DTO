@@ -190,6 +190,8 @@ export const OrderSearchSchema = z.object({
 		.enum(Object.values(OrderSortOptions) as [string, ...string[]])
 		.default(OrderSortOptions.ID),
 	sortOrder: z.enum(['asc', 'desc']).optional().default('asc'),
+	 dateFrom: z.coerce.date().optional(),
+    dateTo: z.coerce.date().optional(),
 });
 
 export const foodAndDrinkSchema = z.object({
@@ -359,6 +361,11 @@ export type OrderSearchListResult = {
 		min: number;
 		max: number;
 	};
+	dateRange: {
+	min: string;
+	max: string;
+};
+	
 	totalCount: number;
 	page: number;
 	pageSize: number;

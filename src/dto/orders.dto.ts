@@ -37,10 +37,11 @@ export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus];
 export const OrderSortOptions = {
 	ID: 'id',
 	TABLE_NUMBER: 'tableNumber',
-	GUEST_NUMBER: 'guestsCount',
+	GUESTS_NUMBER: 'guestsCount',
 	ORDER_TIME: 'orderTime',
 	UPDATED_AT: 'updatedAt',
 	STATUS: 'status',
+	TOTAL_AMOUNT: 'totalAmount',
 } as const;
 
 /**

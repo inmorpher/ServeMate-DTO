@@ -12,15 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-      # Генерируем package-lock.json если его нет
-      - run: npm install zod
-      - run: npm install --package-lock-only
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
+          node-version: '20.19.0'
+          cache: pnpm
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test
 
   publish:
     needs: build
@@ -31,16 +32,17 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20.19.0'
           registry-url: 'https://registry.npmjs.org'
           scope: '@servemate'
-      # Генерируем package-lock.json если его нет
-      - run: npm install zod
-      - run: npm install --package-lock-only
-      - run: npm ci
-      - run: npm run build
+          cache: pnpm
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm build
       # Проверяем что версия тега соответствует версии в package.json
       - name: Check version matches
         run: |

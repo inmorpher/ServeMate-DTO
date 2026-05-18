@@ -235,16 +235,17 @@ export const OrderFullSingleSchema = OrderSchema.omit({
 	drinkItems: z.array(guestItemsBaseSchema),
 });
 
-export const OrderUpdateProps = OrderSchema.omit({
-	orderNumber: true,
-	orderTime: true,
-	updatedAt: true,
-	shiftId: true,
-	serverId: true,
-	completionTime: true,
-	id: true,
-})
-	.partial()
+export const OrderUpdateProps = z
+	.object({
+		tableNumber: z.coerce.number().int().positive().optional(),
+		guestsCount: z.coerce.number().int().positive().optional(),
+		allergies: z.array(z.nativeEnum(Allergies)).optional(),
+		totalAmount: z.coerce.number().int().nonnegative().optional(),
+		status: z.nativeEnum(OrderState).optional(),
+		comments: z.string().optional().nullable(),
+		discount: z.number().optional(),
+		tip: z.number().optional(),
+	})
 	.refine((order) => Object.keys(order).length > 0, {
 		message: 'At least one property must be provided',
 		path: [

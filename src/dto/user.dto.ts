@@ -131,14 +131,14 @@ export const UserParamSchema = z
  * @property {Role} [role] - The user's new role (optional).
  * @property {boolean} [isActive] - The user's new active status (optional).
  */
-export const UpdateUserSchema = UserSchema.pick({
-	name: true,
-	email: true,
-	role: true,
-	isActive: true,
-	lastLogin: true,
-})
-	.partial()
+export const UpdateUserSchema = z
+	.object({
+		name: z.string().min(1, { message: 'Name must not be empty' }).optional(),
+		email: z.string().email({ message: 'Invalid email address' }).optional(),
+		role: z.nativeEnum(UserRole, { message: 'Invalid role' }).optional(),
+		isActive: z.boolean().optional(),
+		lastLogin: z.date().optional().nullable(),
+	})
 	.refine((data) => Object.values(data).some((value) => value !== undefined), {
 		message: 'At least one field must be provided in the body',
 		path: ['name', 'email', 'role', 'isActive', 'lastLogin'],

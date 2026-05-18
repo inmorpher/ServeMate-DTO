@@ -1,0 +1,723 @@
+$ jest
+FAIL tests/global.test.ts
+  ● Test suite failed to run
+
+    [96mtests/global.test.ts[0m:[93m3[0m:[93m1[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m3[0m describe('Global Utils', () => {
+    [7m [0m [91m~~~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m4[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m4[0m  describe('parseQueryArray', () => {
+    [7m [0m [91m ~~~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m5[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m5[0m   it('should handle undefined input', () => {
+    [7m [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m6[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m6[0m    expect(parseQueryArray(undefined)).toEqual([]);
+    [7m [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m9[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m9[0m   it('should handle empty string', () => {
+    [7m [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m10[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m10[0m    expect(parseQueryArray('')).toEqual([]);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m13[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m13[0m   it('should parse comma-separated string', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m14[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m14[0m    expect(parseQueryArray('a,b,c')).toEqual(['a', 'b', 'c']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m17[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m17[0m   it('should handle array input', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m18[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m18[0m    expect(parseQueryArray(['a', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m21[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m21[0m   it('should filter out empty values', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m22[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m22[0m    expect(parseQueryArray('a,,b,c,')).toEqual(['a', 'b', 'c']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m26[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m26[0m  describe('arrayQueryParamSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m27[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m27[0m   it('should transform string to array', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m29[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m29[0m    expect(result).toEqual(['a', 'b', 'c']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m32[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m32[0m   it('should accept array input', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m34[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m34[0m    expect(result).toEqual(['a', 'b', 'c']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/global.test.ts[0m:[93m37[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m37[0m   it('should handle empty string', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/global.test.ts[0m:[93m39[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m39[0m    expect(result).toEqual([]);
+    [7m  [0m [91m   ~~~~~~[0m
+
+FAIL tests/orders.test.ts
+  ● Test suite failed to run
+
+    [96mtests/orders.test.ts[0m:[93m13[0m:[93m1[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m13[0m describe('Order DTOs', () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m14[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m14[0m  describe('OrderSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m15[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m15[0m   it('should validate a valid order', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m35[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m35[0m   it('should validate order without optional fields', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m53[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m53[0m   it('should reject negative total amount', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m72[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m72[0m  describe('OrderItemSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m73[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m73[0m   it('should validate a valid order item', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m94[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m94[0m   it('should reject negative price', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m116[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m116[0m  describe('OrderSearchSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m117[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m117[0m   it('should validate valid search criteria', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m133[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m133[0m   it('should transform string values to appropriate types', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m140[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m140[0m    expect(Array.isArray(parsed.tableNumbers)).toBe(true);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m141[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m141[0m    expect(parsed.serverId).toBeDefined();
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m144[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m144[0m   it('should handle empty search criteria', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m152[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m152[0m   it('should reject invalid page numbers', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m163[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m163[0m   it('should handle allergy array from string', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m168[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m168[0m    expect(parsed.allergies).toEqual(['GLUTEN', 'DAIRY']);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m171[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m171[0m   it('should handle allergy array from array', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m176[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m176[0m    expect(parsed.allergies).toEqual(['GLUTEN', 'DAIRY']);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m180[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m180[0m  describe('OrderUpdateProps', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m181[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m181[0m   it('should validate partial order updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m192[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m192[0m   it('should reject empty update object', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m201[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m201[0m  describe('OrderCreateSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m202[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m202[0m   it('should reject order with no items', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m215[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m215[0m   it('should pass with food items', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m239[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m239[0m  describe('OrderUpdateItemsSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m240[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m240[0m   it('should reject update with no items', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m250[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m250[0m   it('should pass with drink items', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m271[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m271[0m  describe('PrepareItems', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/orders.test.ts[0m:[93m272[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m272[0m   it('should validate food and drink items preparation', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/orders.test.ts[0m:[93m301[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m301[0m   it('should handle empty arrays', () => {
+    [7m   [0m [91m  ~~[0m
+
+FAIL tests/user.test.ts
+  ● Test suite failed to run
+
+    [96mtests/user.test.ts[0m:[93m11[0m:[93m1[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m11[0m describe('User DTOs', () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m12[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m12[0m  describe('UserSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m13[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m13[0m   it('should validate a valid user', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m28[0m   it('should reject invalid email', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m43[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m43[0m   it('should reject invalid role', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m58[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m58[0m   it('should handle date fields correctly', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m73[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m73[0m     expect(parsed.createdAt).toBeInstanceOf(Date);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m74[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m74[0m     expect(parsed.updatedAt).toBeInstanceOf(Date);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m75[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m75[0m     expect(parsed.lastLogin).toBeInstanceOf(Date);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m79[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m79[0m   it('should allow null for lastLogin', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m92[0m:[93m5[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m92[0m     expect(parsed.lastLogin).toBeNull();
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m97[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m97[0m  describe('CreateUserSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m98[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m98[0m   it('should validate valid user creation data', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m111[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m111[0m   it('should reject empty name', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m124[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m124[0m   it('should require all mandatory fields', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m137[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m137[0m  describe('UpdateUserSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m138[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m138[0m   it('should validate partial user updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m149[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m149[0m   it('should reject empty update object', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m158[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m158[0m  describe('UserSearchCriteriaSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m159[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m159[0m   it('should validate valid search criteria', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m176[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m176[0m   it('should handle date filters correctly', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m188[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m188[0m   it('should reject invalid date formats', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m200[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m200[0m   it('should transform boolean string values', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m207[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m207[0m    expect(parsed.isActive).toBe(true);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m210[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m210[0m   it('should properly transform and validate role', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/user.test.ts[0m:[93m217[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m217[0m    expect(parsed.role).toBe(UserRole.ADMIN);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/user.test.ts[0m:[93m220[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m220[0m   it('should reject invalid role values', () => {
+    [7m   [0m [91m  ~~[0m
+
+FAIL tests/tables.test.ts
+  ● Test suite failed to run
+
+    [96mtests/tables.test.ts[0m:[93m12[0m:[93m1[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m12[0m describe('Table DTOs', () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m13[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m13[0m  describe('TableSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m14[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m14[0m   it('should validate a valid table', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m31[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m31[0m   it('should reject invalid table numbers', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m49[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m49[0m  describe('TableCreateSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m50[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m50[0m   it('should validate valid table creation data', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m61[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m61[0m   it('should validate string inputs and convert them to numbers', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m68[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m68[0m    expect(parsed.tableNumber).toBe(15);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m69[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m69[0m    expect(parsed.capacity).toBe(4);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m72[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m72[0m   it('should reject invalid capacity values', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m84[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m84[0m  describe('TableSearchCriteriaSchema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m85[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m85[0m   it('should validate valid search criteria', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m101[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m101[0m   it('should apply default values', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m105[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m105[0m    expect(parsed.page).toBe(1);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m106[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m106[0m    expect(parsed.pageSize).toBe(10);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m107[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m107[0m    expect(parsed.sortBy).toBe(TableSortOptionsEnum.ID);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m108[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m108[0m    expect(parsed.sortOrder).toBe('asc');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m111[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m111[0m   it('should reject invalid sort options', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m122[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m122[0m  describe('TableUpdatesSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m123[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m123[0m   it('should validate partial updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m133[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m133[0m   it('should validate complete updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m144[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m144[0m   it('should reject invalid updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m155[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m155[0m   it('should validate partial table updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m162[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m162[0m    expect(parsed.tableNumber).toBe(15);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m163[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m163[0m    expect(parsed.capacity).toBe(6);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m166[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m166[0m   it('should validate updates with string inputs', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m172[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m172[0m    expect(parsed.tableNumber).toBe(20);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m175[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m175[0m   it('should reject invalid table numbers', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m186[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m186[0m   it('should reject invalid capacity values', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m197[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m197[0m  describe('TableAssignmentSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m198[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m198[0m   it('should validate table assignment with primary flag', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m206[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m206[0m    expect(parsed.serverId).toBe(123);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m207[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m207[0m    expect(parsed.assignedTables).toEqual([1, 2, 3]);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m210[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m210[0m   it('should handle string inputs for serverId and tables', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/tables.test.ts[0m:[93m217[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m217[0m    expect(parsed.serverId).toBe(123);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m218[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m218[0m    expect(parsed.isPrimary).toBe(true); // default value
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/tables.test.ts[0m:[93m219[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m219[0m    expect(parsed.assignedTables).toEqual([1, 2, 3]);
+    [7m   [0m [91m   ~~~~~~[0m
+
+FAIL tests/payment.test.ts
+  ● Test suite failed to run
+
+    [96mtests/payment.test.ts[0m:[93m5[0m:[93m1[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m5[0m describe('Payment DTOs', () => {
+    [7m [0m [91m~~~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m6[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m6[0m  describe('PaymentSchema', () => {
+    [7m [0m [91m ~~~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m7[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m7[0m   it('should validate a valid payment', () => {
+    [7m [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m26[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m26[0m   it('should handle string input for payment type', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m41[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m41[0m    expect(parsed.paymentType).toBe(PaymentMethod.CASH);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m44[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m44[0m   it('should reject negative amounts', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m63[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m63[0m   it('should use default values for optional fields', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m75[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m75[0m    expect(parsed.tax).toBe(0);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m76[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m76[0m    expect(parsed.tip).toBe(0);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m77[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m77[0m    expect(parsed.serviceCharge).toBe(0);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m80[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m80[0m   it('should validate payment dates', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m96[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m96[0m   it('should validate payment status transitions', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m108[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m108[0m    expect(parsed.status).toBe(PaymentState.PENDING);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m121[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m121[0m   it('should validate sorting options', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m122[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m122[0m    expect(PaymentSortOptions.ID).toBe('id');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m123[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m123[0m    expect(PaymentSortOptions.AMOUNT).toBe('amount');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m124[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m124[0m    expect(PaymentSortOptions.PAYMENT_TYPE).toBe('paymentType');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m125[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m125[0m    expect(PaymentSortOptions.CREATED_AT).toBe('createdAt');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m126[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m126[0m    expect(PaymentSortOptions.COMPLETED_AT).toBe('completedAt');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m127[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m127[0m    expect(PaymentSortOptions.ORDER_ID).toBe('orderId');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m131[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m131[0m  describe('PaymentSearchSchema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m132[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m132[0m   it('should validate search criteria with default values', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m139[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m139[0m    expect(parsed.page).toBe(1);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m140[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m140[0m    expect(parsed.pageSize).toBe(10);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m141[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m141[0m    expect(parsed.sortBy).toBe(PaymentSortOptions.ID);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m142[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m142[0m    expect(parsed.sortOrder).toBe('asc');
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/payment.test.ts[0m:[93m145[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m145[0m   it('should validate complete search criteria', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/payment.test.ts[0m:[93m160[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m160[0m   it('should reject invalid pageSize', () => {
+    [7m   [0m [91m  ~~[0m
+
+FAIL tests/items.test.ts
+  ● Test suite failed to run
+
+    [96mtests/items.test.ts[0m:[93m20[0m:[93m1[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m20[0m describe('Item DTOs', () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m21[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m21[0m  describe('BaseItem Schema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m22[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m22[0m   it('should handle string input for ingredients', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m32[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m32[0m    expect(parsed.ingredients).toEqual(['Tomato', 'Cheese', 'Basil']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m35[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m35[0m   it('should properly format ingredient names', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m45[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m45[0m    expect(parsed.ingredients).toEqual(['Tomato', 'Cheese', 'Basil']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m48[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m48[0m   it('should handle non-string ingredients input', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m58[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m58[0m    expect(parsed.ingredients).toEqual(['Tomato', 'Cheese', 'Basil']);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m62[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m62[0m  describe('DrinkItem Schema', () => {
+    [7m  [0m [91m ~~~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m63[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m63[0m   it('should validate a valid drink item', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m83[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m83[0m   it('should handle string inputs for enums', () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m99[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m99[0m    expect(parsed.category).toBe(DrinkCategory.SODA);
+    [7m  [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m100[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m100[0m    expect(parsed.tempriture).toBe(DrinkTemp.COLD);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m103[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m103[0m   it('should reject negative volume', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m124[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m124[0m  describe('FoodItem Schema', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m125[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m125[0m   it('should validate a valid food item', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m149[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m149[0m   it('should handle string input for allergies', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m169[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m169[0m    expect(parsed.allergies).toContain(Allergy.SHELLFISH);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m170[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m170[0m    expect(parsed.allergies).toContain(Allergy.GLUTEN);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m173[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m173[0m   it('should use default values correctly', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m186[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m186[0m    expect(parsed.isVegan).toBe(false);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m187[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m187[0m    expect(parsed.isGlutenFree).toBe(false);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m188[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m188[0m    expect(parsed.isVegetarian).toBe(false);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m189[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m189[0m    expect(parsed.allergies).toEqual([]);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m190[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m190[0m    expect(parsed.preparationTime).toBe(0);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m191[0m:[93m4[0m - [91merror[0m[90m TS2304: [0mCannot find name 'expect'.
+
+    [7m191[0m    expect(parsed.spicyLevel).toBe(SpiceLevel.NOT_SPICY);
+    [7m   [0m [91m   ~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m195[0m:[93m2[0m - [91merror[0m[90m TS2593: [0mCannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m195[0m  describe('Create and Update Schemas', () => {
+    [7m   [0m [91m ~~~~~~~~[0m
+    [96mtests/items.test.ts[0m:[93m196[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m196[0m   it('should validate drink item creation without id', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m215[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m215[0m   it('should validate partial drink updates', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m226[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m226[0m   it('should validate food item creation without id', () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/items.test.ts[0m:[93m244[0m:[93m3[0m - [91merror[0m[90m TS2593: [0mCannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha` and then add 'jest' or 'mocha' to the types field in your tsconfig.
+
+    [7m244[0m   it('should validate partial food updates', () => {
+    [7m   [0m [91m  ~~[0m
+
+Test Suites: 6 failed, 6 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        3.651 s
+Ran all test suites.
+[ELIFECYCLE] Test failed. See above for more details.

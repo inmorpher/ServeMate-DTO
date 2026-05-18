@@ -49,14 +49,22 @@ export const ReservationSchema = z.object({
 		])
 		.pipe(z.array(z.nativeEnum(Allergies))),
 	tables: z
-		.union([
-			z.array(TableBaseTableSchema.pick({ id: true })),
-			z.string().transform((tables) => {
+		.preprocess((tables) => {
+			if (Array.isArray(tables)) {
+				return tables.map((table) =>
+					typeof table === 'object' && table !== null && 'id' in table
+						? (table as { id: number }).id
+						: table,
+				);
+			}
+
+			if (typeof tables === 'string') {
 				if (!tables) return [];
 				return tables.split(',').map((table) => Number(table.trim()));
-			}),
-		])
-		.pipe(z.array(TableBaseTableSchema.shape.id).default([])),
+			}
+
+			return tables;
+		}, z.array(z.coerce.number().int().positive()).default([])),
 	comments: z.string().nullable().optional(),
 	createdAt: z.date().default(() => new Date()),
 	updatedAt: z.date(),

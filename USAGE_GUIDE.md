@@ -20,7 +20,7 @@ import type {
   PaymentResponse,
   PaginatedResponse,
   ApiResponse
-} from '@servemate/dto';
+} from '../../dto-package';
 ```
 
 ### Input типы (что приходит от клиента)
@@ -31,7 +31,7 @@ import type {
   UpdateUserInput,
   CreateOrderInput,
   CreateReservationInput
-} from '@servemate/dto';
+} from '../../dto-package';
 ```
 
 ## Практические примеры
@@ -49,7 +49,7 @@ async getUser(req, res) {
 
 **Стало:**
 ```typescript
-import type { UserResponse, ApiResponse } from '@servemate/dto';
+import type { UserResponse, ApiResponse } from '../../dto-package';
 
 async getUser(req, res): Promise<void> {
   const user = await this.userService.findById(id);
@@ -74,7 +74,7 @@ async getUser(req, res): Promise<void> {
 ### 2️⃣ Создание helper функции для трансформации
 
 ```typescript
-import type { UserResponse } from '@servemate/dto';
+import type { UserResponse } from '../../dto-package';
 import { User } from '@prisma/client';
 
 // В UserService
@@ -93,7 +93,7 @@ async getUser(id: number): Promise<UserResponse> {
 ### 3️⃣ Использование в контроллере с трансформацией
 
 ```typescript
-import { UserResponse, PaginatedResponse } from '@servemate/dto';
+import { UserResponse, PaginatedResponse } from '../../dto-package';
 
 @Get('/all')
 async getAllUsers(req: TypedRequest<UserParamSchema>) {
@@ -115,7 +115,7 @@ async getAllUsers(req: TypedRequest<UserParamSchema>) {
 
 ```typescript
 // В клиентском API файле
-import type { UserResponse, ApiResponse } from '@servemate/dto';
+import type { UserResponse, ApiResponse } from '../../dto-package';
 
 export async function fetchUser(id: number): Promise<UserResponse> {
   const response = await fetch(`/api/users/${id}`);
@@ -153,7 +153,7 @@ function UserProfile() {
 ### 5️⃣ Для заказов с связанными данными
 
 ```typescript
-import { OrderResponse } from '@servemate/dto';
+import { OrderResponse } from '../../dto-package';
 import { Prisma } from '@prisma/client';
 
 export class OrderService {
@@ -192,7 +192,7 @@ export class OrderService {
 ### 6️⃣ Пагинированные результаты
 
 ```typescript
-import { PaginatedResponse, UserResponse } from '@servemate/dto';
+import { PaginatedResponse, UserResponse } from '../../dto-package';
 
 async getUsers(page: number, pageSize: number): Promise<PaginatedResponse<UserResponse>> {
   const [users, total] = await Promise.all([

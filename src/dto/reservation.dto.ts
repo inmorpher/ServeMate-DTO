@@ -1,7 +1,6 @@
 import { z } from 'zod';
 import { ReservationStatus } from './enums';
 import { searchCriteriaSchema } from './global';
-import { Allergies } from './orders.dto';
 import { TableBaseTableSchema, TableSchema } from './tables.dto';
 
 /**
@@ -15,8 +14,8 @@ import { TableBaseTableSchema, TableSchema } from './tables.dto';
  * - `email`: An optional nullable string representing the email of the person making the reservation.
  * - `phone`: A string representing the phone number of the person making the reservation.
  * - `status`: A string transformed to uppercase and validated against the `ReservationStatus` enum, defaulting to `PENDING`.
- * - `allergies`: A union of an array of strings (transformed to uppercase) or a comma-separated string (transformed to an array of uppercase strings), validated against the `Allergies` enum.
  * - `tables`: A union of an array of table IDs or a comma-separated string of table IDs, defaulting to an empty array.
+ * - `allergies`: An array of allergies, defaulting to an empty array.
  * - `comments`: An optional nullable string for additional comments.
  * - `createdAt`: A date representing when the reservation was created, defaulting to the current date.
  * - `updatedAt`: A date representing when the reservation was last updated.
@@ -27,27 +26,13 @@ export const ReservationSchema = z.object({
 	guestsCount: z.coerce.number().int().positive(),
 	time: z.union([z.string().transform((time) => new Date(time)), z.date()]),
 	name: z.string(),
-	email: z.string().email().nullable().optional(),
+	email: z.email().nullish(),
 	phone: z.string(),
 	status: z
 		.string()
 		.transform((status) => status?.toUpperCase())
-		.pipe(z.nativeEnum(ReservationStatus))
+		.pipe(z.enum(ReservationStatus))
 		.default(ReservationStatus.PENDING),
-	allergies: z
-		.union([
-			z
-				.array(z.string())
-				.transform((allergies) => allergies.map((allergy) => allergy.toUpperCase())),
-			z.string().transform((str) => {
-				if (!str) return [];
-				return str
-					.split(',')
-					.map((item) => item.trim().toUpperCase())
-					.filter(Boolean);
-			}),
-		])
-		.pipe(z.array(z.nativeEnum(Allergies))),
 	tables: z
 		.preprocess((tables) => {
 			if (Array.isArray(tables)) {
@@ -65,6 +50,7 @@ export const ReservationSchema = z.object({
 
 			return tables;
 		}, z.array(z.coerce.number().int().positive()).default([])),
+	
 	comments: z.string().nullable().optional(),
 	createdAt: z.date().default(() => new Date()),
 	updatedAt: z.date(),
@@ -109,7 +95,6 @@ export const ReservationSearchCriteria = searchCriteriaSchema.extend({
 		status: true,
 		guestsCount: true,
 		time: true,
-		allergies: true,
 		tables: true,
 		isActive: true,
 	}).partial().shape,
@@ -239,7 +224,6 @@ export type ReservationId = z.infer<typeof ReservationSchema.shape.id>;
  * - `email`: The email address of the guest.
  * - `name`: The name of the guest.
  * - `phone`: The phone number of the guest.
- * - `allergies`: Any allergies the guest may have.
  * - `guestsCount`: The number of guests.
  *
  * Validation:
@@ -251,7 +235,6 @@ export const ReservationGuestInfoSchema = ReservationSchema.pick({
 	email: true,
 	name: true,
 	phone: true,
-	allergies: true,
 	guestsCount: true,
 })
 	.partial()

@@ -30,7 +30,6 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     permissions:
       contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v5
@@ -54,3 +53,5 @@ jobs:
             exit 1
           fi
       - run: pnpm publish --access public --provenance --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

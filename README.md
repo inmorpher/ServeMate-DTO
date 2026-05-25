@@ -165,7 +165,7 @@ import {
     DrinkCategory,
     TableCondition,
     SeatingType
-} from '@servemate/dto';
+} from '../../dto-package';
 
 // Example usage:
 const role = UserRole.MANAGER;
@@ -182,7 +182,7 @@ Use the Zod schemas to validate data at runtime. This is especially useful for v
 **Safe validation (recommended):**
 
 ```typescript
-import { CreateUserSchema } from '@servemate/dto';
+import { CreateUserSchema } from '../../dto-package';
 
 const newUserData = {
     name: 'Jane Doe',
@@ -218,7 +218,7 @@ Automatically infer TypeScript types from the Zod schemas to keep your code DRY 
 
 ```typescript
 import { z } from 'zod';
-import { OrderSchema, OrderItemSchema } from '@servemate/dto';
+import { OrderSchema, OrderItemSchema } from '../../dto-package';
 
 // Infer the TypeScript type from the schema
 type Order = z.infer<typeof OrderSchema>;
@@ -237,7 +237,7 @@ function processOrder(order: Order) {
 The search schemas provide a standardized way to handle complex queries with pagination.
 
 ```typescript
-import { OrderSearchSchema } from '@servemate/dto';
+import { OrderSearchSchema } from '../../dto-package';
 
 const searchCriteria = {
     status: 'RECEIVED',
@@ -263,7 +263,7 @@ if (result.success) {
 Update schemas ensure at least one field is provided:
 
 ```typescript
-import { UpdateUserSchema } from '@servemate/dto';
+import { UpdateUserSchema } from '../../dto-package';
 
 // This will fail - no fields provided
 const emptyUpdate = {};

@@ -55,10 +55,12 @@ const baseItemSchema = z.object({
 	itemId: z.number().int().positive(),
 	finalPrice: z.number().default(0),
 	specialRequest: z.string().nullable(),
+	allergies: z.array(z.enum(Allergies)).default([]),
 	printed: z.boolean().default(false),
 	fired: z.boolean().default(false),
 	guestNumber: z.number().int().positive(),
-	paymentStatus: z.nativeEnum(PaymentStatus).default(PaymentStatus.NONE),
+	paymentStatus: z.enum(PaymentStatus).default(PaymentStatus.NONE),
+
 });
 
 const foodItemSchema = baseItemSchema.extend({
@@ -109,10 +111,10 @@ export const OrderSchema = z.object({
 	guestsCount: z.coerce.number().int().positive(),
 	orderTime: z.date(),
 	updatedAt: z.date(),
-	allergies: z.array(z.nativeEnum(Allergies)).optional(),
+	allergies: z.array(z.enum(Allergies)).optional(),
 	serverId: z.coerce.number().int().positive(),
 	totalAmount: z.coerce.number().int().nonnegative().default(0),
-	status: z.nativeEnum(OrderState).default(OrderState.RECEIVED),
+	status: z.enum(OrderState).default(OrderState.RECEIVED),
 	comments: z.string().optional().nullable(),
 	completionTime: z.date().optional().nullable(),
 	discount: z.number().default(0),
@@ -158,7 +160,7 @@ export const OrderSearchSchema = z.object({
 	allergies: z.preprocess(
 		(val) => {
 			if (typeof val === 'string') {
-				// Разбиваем строку по запятым, очищаем от пробелов и приводим к верхнему регистру
+				
 				const items = val
 					.split(',')
 					.map((item) => item.trim().toUpperCase())
@@ -171,17 +173,16 @@ export const OrderSearchSchema = z.object({
 			}
 			return undefined;
 		},
-		z.optional(z.array(z.nativeEnum(Allergies)))
+		z.optional(z.array(z.enum(Allergies)))
 	),
 	serverId: z
 		.string()
-		.optional()
-		.transform((server) => (server ? parseInt(server) : undefined)),
+		.transform((server) => (server ? parseInt(server) : undefined)).optional(),
 	serverName: z.string().optional(),
 	status: z
 		.string()
 		.transform((status) => status?.toUpperCase())
-		.pipe(z.nativeEnum(OrderState))
+		.pipe(z.enum(OrderState))
 		.optional(),
 	minAmount: z.coerce.number().int().positive().optional(),
 	maxAmount: z.coerce.number().int().positive().optional(),
@@ -190,7 +191,7 @@ export const OrderSearchSchema = z.object({
 	sortBy: z
 		.enum(Object.values(OrderSortOptions) as [string, ...string[]])
 		.default(OrderSortOptions.ID),
-	sortOrder: z.enum(['asc', 'desc']).optional().default('asc'),
+	sortOrder: z.enum(['asc', 'desc']).default('asc'),
 	 dateFrom: z.coerce.date().optional(),
     dateTo: z.coerce.date().optional(),
 });
@@ -239,9 +240,9 @@ export const OrderUpdateProps = z
 	.object({
 		tableNumber: z.coerce.number().int().positive().optional(),
 		guestsCount: z.coerce.number().int().positive().optional(),
-		allergies: z.array(z.nativeEnum(Allergies)).optional(),
+		allergies: z.array(z.enum(Allergies)).optional(),
 		totalAmount: z.coerce.number().int().nonnegative().optional(),
-		status: z.nativeEnum(OrderState).optional(),
+		status: z.enum(OrderState).optional(),
 		comments: z.string().optional().nullable(),
 		discount: z.number().optional(),
 		tip: z.number().optional(),
@@ -269,9 +270,20 @@ export const OrderUpdateItemsSchema = z
 		message: 'At least one of foodItems or drinkItems must be provided',
 	});
 
-export const OrderIds = z.object({
-	ids: z.array(z.coerce.number().int().positive()).min(1, 'At least one order item ID is required'),
-});
+const orderItemIdsPayloadSchema = z.union([
+	z.object({
+		ids: z.array(z.coerce.number().int().positive()).min(1, 'At least one order item ID is required'),
+	}),
+	z.object({
+		orderItemsIds: z.array(z.coerce.number().int().positive()).min(1, 'At least one order item ID is required'),
+	}),
+]);
+
+export const OrderItemIdsSchema = orderItemIdsPayloadSchema.transform((payload) => ({
+	ids: 'ids' in payload ? payload.ids : payload.orderItemsIds,
+}));
+
+export const OrderIds = OrderItemIdsSchema;
 
 export const PrepareItems = z.object({
 	foodItems: z.array(foodItemSchema.partial()).default([]),
@@ -279,8 +291,8 @@ export const PrepareItems = z.object({
 });
 
 export const OrderMeta = z.object({
-	statuses: z.array(z.nativeEnum(OrderState)),
-	allergies: z.array(z.nativeEnum(Allergies)),
+	statuses: z.array(z.enum(OrderState)),
+	allergies: z.array(z.enum(Allergies)),
 	maxGuests: z.number().int().positive(),
 	prices: z.object({
 		min: z.number().int().nonnegative(),
@@ -332,7 +344,9 @@ export type GuestItemsDTO = z.infer<typeof guestItemsBaseSchema>;
 
 export type OrderUpdateProps = z.infer<typeof OrderUpdateProps>;
 
-export type OrderItemsIds = z.infer<typeof OrderIds>;
+export type OrderItemIdsDTO = z.infer<typeof OrderItemIdsSchema>;
+
+export type OrderItemsIds = OrderItemIdsDTO;
 
 export type PrepareItemsDTO = z.infer<typeof PrepareItems>;
 

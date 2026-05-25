@@ -10,7 +10,7 @@
  * ПРИМЕР 1: В контроллере
  * ==========================================
  *
- * import { UserResponse, UserAuthResponse, ApiResponse } from '@servemate/dto';
+ * import { UserResponse, UserAuthResponse, ApiResponse } from '../../dto-package';
  * import { Controller, Get, Post } from '@nestjs/common';
  * import { UserService } from './user.service';
  *
@@ -64,7 +64,7 @@
  * ПРИМЕР 2: В сервисе для трансформации
  * ==========================================
  *
- * import { UserResponse, UserAuthResponse, CreateUserInput, UpdateUserInput } from '@servemate/dto';
+ * import { UserResponse, UserAuthResponse, CreateUserInput, UpdateUserInput } from '../../dto-package';
  * import { User } from '@prisma/client';
  *
  * export class UserService {
@@ -109,7 +109,7 @@
  * ==========================================
  *
  * import { z } from 'zod';
- * import { CreateUserInput } from '@servemate/dto';
+ * import { CreateUserInput } from '../../dto-package';
  *
  * // Создаём Zod schema от типа
  * const CreateUserSchema = z.object({
@@ -130,7 +130,7 @@
  * ПРИМЕР 4: Для Order с includes
  * ==========================================
  *
- * import { OrderResponse } from '@servemate/dto';
+ * import { OrderResponse } from '../../dto-package';
  * import { Prisma } from '@prisma/client';
  *
  * // В сервисе
@@ -170,7 +170,7 @@
  * ПРИМЕР 5: Пагинация с типами
  * ==========================================
  *
- * import { PaginatedResponse, UserResponse } from '@servemate/dto';
+ * import { PaginatedResponse, UserResponse } from '../../dto-package';
  *
  * async getUsers(page: number = 1, pageSize: number = 10): Promise<PaginatedResponse<UserResponse>> {
  *   const [users, total] = await Promise.all([
@@ -197,7 +197,7 @@
  * ==========================================
  *
  * // Импортируем типы
- * import type { UserResponse, ApiResponse, PaginatedResponse } from '@servemate/dto';
+ * import type { UserResponse, ApiResponse, PaginatedResponse } from '../../dto-package';
  *
  * // React пример
  * interface UserState {

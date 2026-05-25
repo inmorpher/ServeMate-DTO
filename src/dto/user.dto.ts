@@ -89,36 +89,36 @@ export const IdParamSchema = z.object({
 export const UserParamSchema = z
 	.object({
 		id: z.coerce.number().optional(),
-		email: z.string().email().optional(),
+		email: z.email().optional(),
 		name: z.string().min(3).optional(),
 		page: z.coerce.number().int().min(1).default(1),
 		pageSize: z.coerce.number().int().min(1).default(10),
-		sortBy: z.nativeEnum(UserSortColumn).default(UserSortColumn.NAME),
+		sortBy: z.enum(UserSortColumn).default(UserSortColumn.NAME),
 		sortOrder: z.enum(['asc', 'desc']).default('asc'),
 		role: z.preprocess(
 			(value) => (typeof value === 'string' ? value.toUpperCase() : value),
-			z.nativeEnum(UserRole).optional(),
+			z.enum(UserRole).optional(),
 		),
-		isActive: z
-			.enum(['true', 'false'])
-			.optional()
-			.transform((val) => {
-				if (val === 'true') return true;
-				if (val === 'false') return false;
-				return undefined;
-			}),
+		isActive: z.preprocess(
+    (val) => {
+        if (val === 'true' || val === true) return true;
+        if (val === 'false' || val === false) return false;
+        return undefined;
+    },
+    z.boolean().optional()
+),
 		createdAfter: z
 			.string()
-			.optional()
 			.refine((value) => !value || !isNaN(Date.parse(value)), {
 				message: 'createdAfter must be a valid date string',
-			}),
+			})
+			.transform((val) => val ? new Date(val) : undefined).optional(),
 		createdBefore: z
 			.string()
-			.optional()
 			.refine((value) => !value || !isNaN(Date.parse(value)), {
 				message: 'createdBefore must be a valid date string',
-			}),
+			})
+			.transform((val) => val ? new Date(val) : undefined).optional(),
 	});
 	
 
@@ -134,8 +134,8 @@ export const UserParamSchema = z
 export const UpdateUserSchema = z
 	.object({
 		name: z.string().min(1, { message: 'Name must not be empty' }).optional(),
-		email: z.string().email({ message: 'Invalid email address' }).optional(),
-		role: z.nativeEnum(UserRole, { message: 'Invalid role' }).optional(),
+		email: z.email({ message: 'Invalid email address' }).optional(),
+		role: z.enum(UserRole, { message: 'Invalid role' }).optional(),
 		isActive: z.boolean().optional(),
 		lastLogin: z.date().optional().nullable(),
 	})

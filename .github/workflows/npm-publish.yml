@@ -53,4 +53,4 @@ jobs:
             echo "Version mismatch: Tag version ($TAG_VERSION) doesn't match package.json version ($PACKAGE_VERSION)"
             exit 1
           fi
-      - run: pnpm publish --access public --provenance
+      - run: pnpm publish --access public --provenance --no-git-checks

@@ -99,6 +99,32 @@ const guestItemsBaseSchema = z.object({
 	),
 });
 
+const orderItemRawSchema = z.object({
+	id: z.number().int().positive(),
+price: z.number().nonnegative(),
+discount: z.number().default(0),
+itemId: z.number().int().positive(),
+finalPrice: z.number().default(0),
+specialRequest: z.string().nullable(),
+allergies: z.array(z.enum(Allergies)).optional(),
+printed: z.boolean().default(false),
+fired: z.boolean().default(false),
+guestNumber: z.number().int().positive(),
+paymentStatus: z.enum(PaymentStatus).default(PaymentStatus.NONE),
+foodItem: z
+	.object({
+		name: z.string(),
+		id: z.number(),
+	})
+	.optional(),
+drinkItem: z
+	.object({
+		name: z.string(),
+		id: z.number(),
+	})
+	.optional(),
+});
+
 const createGuestItemsSchema = z.object({
 	guestNumber: z.number().int().positive(),
 	items: z.array(baseItemSchema.omit({ id: true, guestNumber: true })),
@@ -184,8 +210,8 @@ export const OrderSearchSchema = z.object({
 		.transform((status) => status?.toUpperCase())
 		.pipe(z.enum(OrderState))
 		.optional(),
-	minAmount: z.coerce.number().int().positive().optional(),
-	maxAmount: z.coerce.number().int().positive().optional(),
+	minAmount: z.coerce.number().positive().optional(),
+	maxAmount: z.coerce.number().positive().optional(),
 	page: z.coerce.number().int().positive().optional().default(1),
 	pageSize: z.coerce.number().int().positive().max(100).optional().default(10),
 	sortBy: z
@@ -351,6 +377,8 @@ export type OrderItemsIds = OrderItemIdsDTO;
 export type PrepareItemsDTO = z.infer<typeof PrepareItems>;
 
 export type OrderItemExt = z.infer<typeof orderItemSchema>;
+
+export type OrderItemRawDTO = z.infer<typeof orderItemRawSchema>;
 
 export type OrderUpdateItems = z.infer<typeof OrderUpdateItemsSchema>;
 
